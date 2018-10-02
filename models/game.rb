@@ -1,26 +1,45 @@
 class Game
 
-  def self.play(hand1, hand2)
-    if hand1 == "rock" && hand2 == "scissors"
-      return "player 1 wins because rock beats scissors"
+  def self.play(player1, hand1, player2, hand2)
+    results = {
+      "rock" => "scissors",
+      "scissors" => "paper",
+      "paper" => "rock"
+    }
 
-    elsif hand1 == "rock" && hand2 == "paper"
-        return "player 2 wins because paper beats rock"
+    if hand1 == hand2
+      return "It's a draw"
+    elsif results[hand1] == hand2
+      return "#{player1} wins because #{hand1} beats #{hand2}"
+    elsif results[hand2] == hand1
+      return "#{player2} wins because #{hand2} beats #{hand1}"
+    else
+      return "You are a fucking moron, this is wrong paper, scissors"
 
-    elsif hand1 == "paper" && hand2 == "scissors"
-        return "player 2 wins because scissors beats paper"
+      # if hand1 == "rock" && hand2 == "scissors"
+      #   return "#{player1} wins because rock beats scissors"
+      #
+      # elsif hand1 == "rock" && hand2 == "paper"
+      #   return "#{player2} wins because paper beats rock"
+      #
+      # elsif hand1 == "paper" && hand2 == "scissors"
+      #   return "#{player2} wins because scissors beats paper"
+      #
+      # elsif hand1 == "paper" && hand2 == "rock"
+      #   return "#{player1} wins because paper beats rock"
+      #
+      # elsif hand1 == "scissors" && hand2 == "paper"
+      #   return "#{player1} wins because scissors beats paper"
+      #
+      # elsif hand1 == "scissors" && hand2 == "rock"
+      #   return "#{player2} wins because rock beats scissors"
+      #
+      # elsif hand1 == hand2
+      #   return "It's a draw"
+      # else
+      #   return "You are a fucking moron, this is wrong paper, scissors"
 
-    elsif hand1 == "paper" && hand2 == "rock"
-        return "player 1 wins because paper beats rock"
 
-    elsif hand1 == "scissors" && hand2 == "paper"
-        return "player 1 wins because scissors beats paper"
-
-    elsif hand1 == "scissors" && hand2 == "rock"
-        return "player 2 wins because rock beats scissors"
-
-    elsif hand1 == hand2
-        return "It's a draw"
     end
   end
 
